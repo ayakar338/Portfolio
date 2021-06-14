@@ -39,7 +39,7 @@ class Admin::BreedsController < ApplicationController
   end
 
   def destroy
-      breed =Breed.find(params[:id])
+      breed = Breed.find(params[:id])
       breed.destroy
       flash[:alert] = "品種を削除しました"
       redirect_to admin_breeds_path

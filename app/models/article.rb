@@ -1,3 +1,5 @@
 class Article < ApplicationRecord
-  belongs_to :admin
+
+  attachment :image
+  validates :title, :sentence,  presence: true
 end
