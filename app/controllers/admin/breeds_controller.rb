@@ -29,10 +29,10 @@ class Admin::BreedsController < ApplicationController
   end
 
   def update
-    breed = Breed.find(params[:id])
-    if breed.update(breed_params)
+    @breed = Breed.find(params[:id])
+    if @breed.update(breed_params)
       flash[:notice] = "内容を変更しました"
-      redirect_to admin_breed_path
+      redirect_to admin_breed_path(@breed)
     else
       render :edit
     end
