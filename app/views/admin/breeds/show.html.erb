@@ -1,0 +1,36 @@
+
+<h2 class="head-line title_h2 text-center">品種詳細</h2>
+<div class='container'>
+<div class="row">
+	<div class="col-xs-12">
+	  <div class="col-xs-4">
+	      <div id="img_field">
+	          <%= attachment_image_tag(@breed, :image, size: "300x220", fallback: "no_image.jpg") %>
+	      </div>
+      </div>
+      <div class="col-xs-6">
+	      <div class="field">
+					<p>品種名　　　　　<%= @breed.title %></p>
+	      </div><br>
+	      <div class="field">
+					<p>品種説明　　　　<%= @breed.sentence %></p><br>
+	      </div>
+	      <div class="field">
+	      	<% if @breed.genre != nil %>
+					<p>ジャンル　　　　<%= @breed.genre.name %></p><br>
+			<% else %>
+              		<p>ジャンル &emsp;  &emsp;  &emsp; なし</p>
+            <% end %>
+	      </div>
+
+
+		  <tr>
+	      		<th><%= link_to "編集する", edit_admin_breed_path(@breed), class: "glyphicon glyphicon-pencil btn btn-success pull-right" %></th>
+      </tr>
+      <tr>
+　　　　<th><%= link_to "削除する", admin_breed_path(@breed.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "glyphicon glyphicon-pencil btn bg-danger text-white pull-right" %></th>
+　　　</tr>
+      	</div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,35 @@
+<% if @article.errors.any?%>
+ <%@article.errors.full_messages.each do|message|%>何も入力されていません
+ <%end%>
+<%end%>
+<h2 class="head-line title_h2 text-center">記事編集</h2>
+<div class='container'>
+<div class="row">
+
+  <%= form_for(@article, url: admin_article_path, method: :patch, class: "form-horizontal") do |f| %>
+    <div class="col-xs-4">
+      <div class="img_field">
+        <%= attachment_image_tag(@article, :image, size: "250x180") %>
+      </div>
+      <div class="form-group">
+	      <%= f.attachment_field :image, class: " image" %>
+      </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+          <%= f.label :"タイトル", class: "col-sm-3 control-label" %>
+          <%= f.text_field :title, class: "col-sm-9 form-control-static name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"文章", class: "col-sm-3 control-label" %>
+          <%= f.text_area :sentence, class: "col-sm-9 control-label description" %>
+        </div>
+      <div class="actions">
+	      <%= f.submit "変更を保存", class: "btn btn-success pull-right" %>
+      </div>
+
+    </div>
+  <% end %>
+</div>
+</div>
