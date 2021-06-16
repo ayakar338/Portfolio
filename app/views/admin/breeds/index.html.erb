@@ -2,10 +2,12 @@
 <div class='container'>
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
+  <% if admin_signed_in? %>
     <%= link_to new_admin_breed_path, class: "btn btn-secondary pull-right new_item" do %>
     <i class="fas fa-plus"></i>
     新規品種登録
     <% end %>
+  <% end %>
     <table class="table table-hover table-bordered table-condensed">
       <thead>
         <tr class="info">

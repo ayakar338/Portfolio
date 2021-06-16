@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'maps/index'
 #管理者ログイン
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -17,12 +18,14 @@ Rails.application.routes.draw do
     resources :articles, only: [:index,:new,:create,:show,:edit,:update,:destroy]
   end
 
+  get   'contacts'         => 'contacts#index'     # 入力画面
+  post  'contacts/confirm' => 'contacts#confirm'   # 確認画面
+  post  'contacts/sendmail'  => 'contacts#sendmail'    # 送信完了画面
+  get "contacts/thanks" => 'contacts#thanks'
 #予約情報
   resources :reservations, only: [:index,:new,:create,:show,:edit,:update,:destroy]
 #お問い合わせ
-  resources :contacts, only: [:new,:create,:index,:destroy]
-
-
+  resources :contacts, only: [:new,:thanks,:confirm]
 
   root to: 'homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

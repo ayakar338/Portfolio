@@ -79,3 +79,7 @@ group :production do
 end
 #エラーメッセージの日本語化
 gem 'rails-i18n'
+#フルカレンダー使用
+gem 'jquery-rails'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

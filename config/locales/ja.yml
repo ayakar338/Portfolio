@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      admin: '管理者'
+      contact: 'お問い合わせ'
+      breed: '品種'
+      genre: 'ジャンル'
+      article: '記事'
+      reservation: '予約'
+
+    attributes:
+      contact:
+        name: '名前'
+        email: 'メールアドレス'
+        message: 'メッセージ'
+
+      breed:
+        sentence: '文章'
+        title: 'タイトル'
+
+      genre:
+        name: 'ジャンル名'
+
+      article:
+        sentence: '文章'
+        title: 'タイトル'
