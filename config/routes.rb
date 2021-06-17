@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'maps/index'
 #管理者ログイン
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -26,6 +25,8 @@ Rails.application.routes.draw do
   resources :reservations, only: [:index,:new,:create,:show,:edit,:update,:destroy]
 #お問い合わせ
   resources :contacts, only: [:new,:thanks,:confirm]
+#マップ
+  resources :maps, only: [:index]
 
   root to: 'homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

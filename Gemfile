@@ -83,3 +83,7 @@ gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+#コントローラーで定義したインスタンス変数をビューのJavaScript内で使用出来る様にする
+gem 'gon'
+#マップの緯度経度情報取得のため
+gem 'geocoder'

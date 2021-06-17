@@ -6,4 +6,9 @@ class Admin < ApplicationRecord
 
   has_many :articles, dependent: :destroy
   has_many :breeds, dependent: :destroy
+
+  Admin.create!(
+   email: ENV['ADMIN_MAIL'],
+   password: ENV['ADMIN_PASSWORD'],
+)
 end
