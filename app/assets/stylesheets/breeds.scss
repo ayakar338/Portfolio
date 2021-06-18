@@ -30,3 +30,33 @@ img {
 /*index画面　終わり*/
 
 /*show画面　始まり*/
+.img{
+  padding: 20px;
+  margin: 20px;
+}
+
+.explanation{
+  padding: 20px;
+  margin: 20px;
+}
+
+.box{
+  padding: 20px;
+}
+
+.show-title{
+  text-decoration: underline;
+}
+
+.show-text{
+  width: 600px;
+  word-break: break-all;
+  padding: 20px;
+}
+/*show画面　終わり*/
+
+/*new画面　始まり*/
+.form-group{
+  padding: 10px;
+}
+

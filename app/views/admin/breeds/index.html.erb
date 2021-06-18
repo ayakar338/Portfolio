@@ -1,8 +1,8 @@
-<h2 class="text-center">品種一覧</h2>
 <div class='container'>
 
   <div>
-    <!--新規品種登録ボタン　始まり-->
+
+<!--新規品種登録ボタン　始まり-->
     <div class="new_breed">
   　 <% if admin_signed_in? %>
     　 <%= link_to new_admin_breed_path, class: "btn btn-secondary" do %>
@@ -11,9 +11,9 @@
     　 <% end %>
   　 <% end %>
   　</div>
-　<!--新規品種登録ボタン　終わり-->
+<!--新規品種登録ボタン　終わり-->
 
-　<!--ジャンル選択ボックス　始まり-->
+<!--ジャンル選択ボックス　始まり-->
   <div class="select_tag">
    <%= form_tag admin_breeds_path, method: :get do %>
       <%= select_tag :genre_id,
@@ -25,9 +25,9 @@
       %>
     <% end %>
   </div>
-  <!--ジャンル選択ボックス　終わり-->
+<!--ジャンル選択ボックス　終わり-->
 
-　<!--品種記事　始まり-->
+<!--品種記事　始まり-->
  <div class="row">
     <% @breeds.each do |breed| %>
     <div class="breed_article">
@@ -42,10 +42,10 @@
     </div>
     <% end %>
   </div>
- <!--品種記事　終わり-->
+<!--品種記事　終わり-->
 
 
-  <!--ページネーション　始まり-->
+<!--ページネーション　始まり-->
 　　<div class="text-center"><%= paginate(@breed_all) %></div>
 　<!--ページネーション　終わり-->
 
