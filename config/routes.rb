@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new,:thanks,:confirm]
 #マップ
   resources :maps, only: [:index]
+#予約情報
+  resources :events, only: [:index,:new,:create,:show,:edit,:update,:destroy]
+
+   post 'events/confirm' => 'events#confirm'
 
   root to: 'homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

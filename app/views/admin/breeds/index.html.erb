@@ -1,44 +1,53 @@
-<h2 class="head-line title_h2 text-center admin_item_index">品種一覧</h2>
+<h2 class="text-center">品種一覧</h2>
 <div class='container'>
-<div class="row">
-  <div class="col-xs-10 col-xs-offset-1">
-  <% if admin_signed_in? %>
-    <%= link_to new_admin_breed_path, class: "btn btn-secondary pull-right new_item" do %>
-    <i class="fas fa-plus"></i>
-    新規品種登録
+
+  <div>
+    <!--新規品種登録ボタン　始まり-->
+    <div class="new_breed">
+  　 <% if admin_signed_in? %>
+    　 <%= link_to new_admin_breed_path, class: "btn btn-secondary" do %>
+    　 <i class="fas fa-plus"></i>
+    　 新規品種登録
+    　 <% end %>
+  　 <% end %>
+  　</div>
+　<!--新規品種登録ボタン　終わり-->
+
+　<!--ジャンル選択ボックス　始まり-->
+  <div class="select_tag">
+   <%= form_tag admin_breeds_path, method: :get do %>
+      <%= select_tag :genre_id,
+                     options_from_collection_for_select(Genre.all, :id, :name, params[:genre_id]),
+                     {
+                       prompt: '全て',
+                       onchange: 'submit(this.form);'
+                     }
+      %>
     <% end %>
-  <% end %>
-    <table class="table table-hover table-bordered table-condensed">
-      <thead>
-        <tr class="info">
-          <th>画像</th>
-          <th>品種名</th>
-          <th>ジャンル</th>
-        </tr>
-      </thead>
-      <tbody>
-          <% @breeds.each do |breed| %>
-          <tr>
-            <td class="info col-xs-1">
-                <%= attachment_image_tag breed, :image, size: "300x220", fallback: "no_image.jpg" %>
-            </td>
-            <td class"text-left">
-                <%= link_to admin_breed_path(breed), class: "btn-link" do %>
-                <%= breed.title %>
-                <% end %>
-            </td>
-            <td class="text-left col-xs-3">
-              <% if breed.genre != nil %>
-                <%= breed.genre.name %>
-              <% else %>
-              <p>なし</p>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-      </tbody>
-    </table>
   </div>
-　　<div class="text-center"><%= paginate(@breeds) %></div>
-</div>
+  <!--ジャンル選択ボックス　終わり-->
+
+　<!--品種記事　始まり-->
+ <div class="row">
+    <% @breeds.each do |breed| %>
+    <div class="breed_article">
+      <div class="img">
+        <div><%= attachment_image_tag breed, :image, fallback: "no_image.jpg" %></div>
+      </div>
+      <div class="title">
+        <%= link_to admin_breed_path(breed) do %>
+         <div><%= breed.title %></div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+ <!--品種記事　終わり-->
+
+
+  <!--ページネーション　始まり-->
+　　<div class="text-center"><%= paginate(@breed_all) %></div>
+　<!--ページネーション　終わり-->
+
+ </div>
 </div>

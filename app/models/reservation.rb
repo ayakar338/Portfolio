@@ -7,4 +7,7 @@ class Reservation < ApplicationRecord
   validates :address, presence: true
   validates :telephone, presence: true
 
+　def start_time
+  　self.date
+　end
 end

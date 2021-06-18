@@ -1,0 +1,43 @@
+<h1>確認画面</h1>
+
+  <div>
+    <p>姓: <%= @event.first_name %></p>
+  </div>
+  <div>
+    <p>姓: <%= @event.last_name %></p>
+  </div>
+  <div>
+    <p>姓: <%= @event.first_name_kana %></p>
+  </div>
+  <div>
+    <p>姓: <%= @event.last_name_kana %></p>
+  </div>
+  <div>
+    <p>参加人数: <%= @event.number %></p>
+  </div>
+  <div>
+    <p>ご希望日: <%= @event.plan_day %></p>
+  </div>
+  <div>
+    <p>ご希望時間: <%= @event.start_time %></p>
+  </div>
+  <div>
+    <p>ご希望時間: <%= @event.email %></p>
+  </div>
+  <div>
+    <p>電話番号: <%= @event.tel %></p>
+  </div>
+  
+
+
+<%= form_with(model: @event, id: 'charge-form', local: true) do |f| %>
+  <%= f.hidden_field :plan_id %>
+  <%= f.hidden_field :num_id %>
+  <%= f.hidden_field :start_time %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :tel %>
+  <%= f.hidden_field :price %>
+
+  <%= f.submit "予約する" %>
+  <%= f.submit "戻る", name: :back %>
+<% end %>

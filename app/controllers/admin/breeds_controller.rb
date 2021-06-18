@@ -2,7 +2,8 @@ class Admin::BreedsController < ApplicationController
   before_action :authenticate_admin!, only: [:edit, :new]
   before_action :set_genres, only: [:new, :edit, :index, :create, :update]
   def index
-    @breeds = Breed.all.page(params[:page]).per(10)
+    @breed_all = Breed.all.page(params[:page]).per(10)
+    @breeds = params[:genre_id].present? ? Genre.find(params[:genre_id]).breeds : Breed.all
   end
 
   def new

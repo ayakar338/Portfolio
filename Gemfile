@@ -87,3 +87,5 @@ gem 'momentjs-rails'
 gem 'gon'
 #マップの緯度経度情報取得のため
 gem 'geocoder'
+#シンプルカレンダー使用
+gem 'simple_calendar'

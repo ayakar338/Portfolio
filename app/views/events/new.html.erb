@@ -1,0 +1,55 @@
+<h1>お申し込みフォーム</h1>
+
+<%= form_with(model: @event, url:events_confirm_path, local: true) do |f| %>
+
+　<div>
+    <%= f.label :姓 %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :名 %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= f.label :姓・カナ %>
+    <%= f.text_field :first_name_kana %>
+  </div>
+
+　<div>
+    <%= f.label :名・カナ %>
+    <%= f.text_field :last_name_kana %>
+  </div>
+
+  <div>
+    <%= f.label :参加人数 %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div>
+    <%= f.label :ご希望日 %>
+    <%= f.date_select :plan_day %>
+  </div>
+
+　<div>
+    <%= f.label :ご希望時間 %>
+    <%= f.time_select :start_time %>
+  </div>
+
+　<div>
+    <%= f.label :メールアドレス %>
+    <%= f.text_field :email %>
+  </div>
+
+
+  <div>
+    <%= f.label :電話番号 %>
+    <%= f.text_field :tel %>
+  </div>
+
+  <div>
+    <%= f.submit "確認画面へ" %>
+  </div>
+
+<% end %>
