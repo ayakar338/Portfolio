@@ -31,7 +31,7 @@
  <div class="row">
     <% @breeds.each do |breed| %>
     <div class="breed_article">
-      <div class="img">
+      <div>
         <div><%= attachment_image_tag breed, :image, fallback: "no_image.jpg" %></div>
       </div>
       <div class="title">
@@ -47,7 +47,7 @@
 
 <!--ページネーション　始まり-->
 　　<div class="text-center"><%= paginate(@breed_all) %></div>
-　<!--ページネーション　終わり-->
+<!--ページネーション　終わり-->
 
  </div>
 </div>
