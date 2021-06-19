@@ -10,8 +10,8 @@
       <% end %>
     </div>
 <!--新規記事登録ボタン  終わり-->
-
-    <table>
+  <div class="article_all">
+    <table class="article">
 <!--記事一覧項目  始まり-->
       <thead>
         <tr>
@@ -24,11 +24,11 @@
 <!--記事一覧  始まり-->
       <% @articles.each do |article| %>
       <tr>
-        <td>
+        <td class="article-date-index">
           <%= article.created_at.strftime("%F %H:%M") %>
         </td>
 
-        <td>
+        <td class="article-title-index">
           <%= link_to admin_article_path(article), class: "btn-link" do %>
             <%= article.title %>
           <% end %>
@@ -37,9 +37,9 @@
       <% end %>
 <!--記事一覧  終わり-->
     </table>
-
+  </div>
 <!--ページネーション　始まり-->
-    <div class="text-center"><%= paginate(@articles) %></div>
+    <div class="text-center"><%= paginate(@articles_all) %></div>
 <!--ページネーション　終わり-->
 
   </div>

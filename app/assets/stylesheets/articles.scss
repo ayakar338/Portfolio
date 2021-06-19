@@ -16,3 +16,38 @@
 .new_article{
   padding: 10px;
 }
+
+.article_all{
+  display: flex;
+  justify-content: space-around;
+}
+
+.article{
+  text-align: center;
+}
+
+.article-date-index{
+  padding: 10px;
+}
+
+.article-title-index{
+  padding: 10px;
+}
+/*index画面　終わり*/
+
+/*show画面　始まり*/
+.article-image{
+  padding: 20px;
+}
+
+.article-title{
+  text-decoration: underline;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.article-text{
+  word-break: break-all;
+  padding: 20px;
+}
+/*show画面　終わり*/

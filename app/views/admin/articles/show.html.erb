@@ -2,17 +2,19 @@
 <div><%= link_to"<< 一覧に戻る", admin_articles_path %></div>
 <div class="article">
   <div>
-    <%= attachment_image_tag(@article, :image, size: "600×500", fallback: "no_image.jpg") %>
+    <div class="article-image"><%= attachment_image_tag(@article, :image, size: "600×500", fallback: "no_image.jpg") %></div>
   </div>
   <div>
-	<div>品種名<%= @article.title %></div>
+    <div class="article-title"><%= @article.title %></div>
   </div>
   <div>
-	<div>品種説明<%= @article.sentence %></div>
+    <div class="article-text"><%= @article.sentence %></div>
   </div>
+  <% if admin_signed_in? %>
   <tr>
-	<th><%= link_to "編集する", edit_admin_article_path(@article), class: "glyphicon glyphicon-pencil btn btn-success pull-right" %></th>
-　　<th><%= link_to "削除する", admin_article_path(@article.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "glyphicon glyphicon-pencil btn bg-danger text-white pull-right" %></th>
-　</tr>
+    <th><%= link_to "編集する", edit_admin_article_path(@article), class: "glyphicon glyphicon-pencil btn btn-success pull-right" %></th>
+    <th><%= link_to "削除する", admin_article_path(@article.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "glyphicon glyphicon-pencil btn bg-danger text-white pull-right" %></th>
+  </tr>
+  <% end %>
 </div>
 </div>

@@ -1,7 +1,8 @@
 class Admin::ArticlesController < ApplicationController
   before_action :authenticate_admin!, only: [:edit, :new]
   def index
-    @articles = Article.all.page(params[:page]).per(3)
+    @articles_all = Article.all.page(params[:page]).per(3)
+    @articles = Article.all.order(created_at: :desc)
   end
 
   def new
