@@ -2,8 +2,9 @@
 <div class="row">
 <div><%= link_to"<< 一覧に戻る", admin_breeds_path %></div>
 <!--画像表示　始まり-->
- <div class="img">
-	 <div><%= attachment_image_tag(@breed, :image, fallback: "no_image.jpg") %></div>
+<div class="breed_article">
+ <div>
+	 <div><%= attachment_image_tag @breed, :image, fallback: "no_image.jpg", class: "breed" %></div>
  </div>
 <!--画像表示　終わり-->
 
@@ -38,6 +39,7 @@
 　  </tr>
 　  <% end %>
   </div>
+</div>
 <!--品種説明欄　終わり-->
 </div>
 </div>

@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*index画面　始まり*/
+
 .new_breed{
   padding: 10px;
 }
@@ -16,7 +17,7 @@
   margin: 20px;
 }
 
-img {
+img.breed {
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
   width: 200px;  /* 縦横を同じ値にする */
   height: 200px;  /* 縦横を同じ値にする */

@@ -1,16 +1,15 @@
+
 <div class='container'>
-
   <div>
-
 <!--新規品種登録ボタン　始まり-->
     <div class="new_breed">
-  　 <% if admin_signed_in? %>
-    　 <%= link_to new_admin_breed_path, class: "btn btn-secondary" do %>
-    　 <i class="fas fa-plus"></i>
-    　 新規品種登録
-    　 <% end %>
-  　 <% end %>
-  　</div>
+     <% if admin_signed_in? %>
+       <%= link_to new_admin_breed_path, class: "btn btn-secondary" do %>
+       <i class="fas fa-plus"></i>
+       新規品種登録
+       <% end %>
+     <% end %>
+    </div>
 <!--新規品種登録ボタン　終わり-->
 
 <!--ジャンル選択ボックス　始まり-->
@@ -32,7 +31,7 @@
     <% @breeds.each do |breed| %>
     <div class="breed_article">
       <div>
-        <div><%= attachment_image_tag breed, :image, fallback: "no_image.jpg" %></div>
+        <div><%= attachment_image_tag breed, :image, fallback: "no_image.jpg", class: "breed"%></div>
       </div>
       <div class="title">
         <%= link_to admin_breed_path(breed) do %>
@@ -49,5 +48,5 @@
 　　<div class="text-center"><%= paginate(@breed_all) %></div>
 <!--ページネーション　終わり-->
 
- </div>
+  </div>
 </div>

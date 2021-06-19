@@ -12,7 +12,7 @@
 <!--エラーメッセージ　終わり-->
 <div class='container'>
   <div>
-<!--新規投品種稿画面　始まり-->
+<!--新規品種投稿画面　始まり-->
     <%= form_with model: @breed, url: admin_breeds_path, local:true do |f|%>
       <div class="box">
         <div class="form-group">
@@ -27,7 +27,7 @@
 
         <div class="form-group">
           <div><%= f.label :"品種説明" %></div>
-          <div class="text_area"><%= f.text_area :sentence, class: "form-control" %></div>
+          <div><%= f.text_area :sentence, class: "form-control" %></div>
         </div>
 
         <div class="form-group">
