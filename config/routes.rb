@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   #ジャンル追加
     resources :genres, only: [:index,:new,:create,:edit,:update,:destroy]
   #記事投稿
-    resources :articles, only: [:index,:new,:create,:show,:edit,:update,:destroy]
+    resources :articles, only: [:index,:new,:create,:show,:edit,:update,:destroy] do
+      resources :comments, only: [:create, :destroy]
+      resource :favorites, only: [:create]
+    end
   end
 
   get   'contacts'         => 'contacts#index'     # 入力画面

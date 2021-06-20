@@ -17,6 +17,8 @@
         <tr>
           <th>更新日時</th>
           <th>記事タイトル</th>
+          <th>コメント数</th>
+          <th>いいね数</th>
         </tr>
       </thead>
 <!--記事一覧項目  終わり-->
@@ -32,6 +34,14 @@
           <%= link_to admin_article_path(article), class: "btn-link" do %>
             <%= article.title %>
           <% end %>
+        </td>
+
+        <td class="article-option">
+          <%= link_to "#{article.comments.count} コメント", admin_article_path(article.id) %>
+        </td>
+
+        <td class="article-option">
+          <%= link_to "#{article.favorites.count}", admin_article_path(article.id) %>
         </td>
       </tr>
       <% end %>

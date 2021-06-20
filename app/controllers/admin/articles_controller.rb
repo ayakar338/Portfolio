@@ -3,6 +3,7 @@ class Admin::ArticlesController < ApplicationController
   def index
     @articles_all = Article.all.page(params[:page]).per(3)
     @articles = Article.all.order(created_at: :desc)
+    @favorite = Favorite.find_by(ip: request.remote_ip, article_id: params[:article_id])
   end
 
   def new
@@ -21,6 +22,8 @@ class Admin::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comments_all = Comment.all.page(params[:page]).per(3)
   end
 
   def edit
