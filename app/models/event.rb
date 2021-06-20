@@ -1,42 +1,5 @@
 class Event < ApplicationRecord
-  validate :date_before_start
-  validate :start_time_not_sunday
-  validate :start_time_not_saturday
-  validate :time_only
-  validates :start_time, uniqueness: { message: 'は他のユーザーが予約しています' }
+  validates :number, :plan_day, :tel, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :start_time,  presence: true
 
-  def date_before_start
-    errors.add(:start_time, "は過去の日付を選択できません") if start_time < Date.today
-  end
-
-  def start_time_not_sunday
-    errors.add(:start_time, "は日曜日を選択できません") if start_time.sunday?
-  end
-
-  def start_time_not_saturday
-    errors.add(:start_time, "は土曜日を選択できません") if start_time.saturday?
-  end
-
-  def time_only
-    if hour_only_13 && min_only
-      true
-    elsif hour_only_19 && min_only
-      true
-    else
-      errors.add(:start_time, "(時間)は13:15もしくは19:15になります")
-    end
-  end
-
-  def hour_only_19
-    start_time.hour == 19
-  end
-
-  def hour_only_13
-    start_time.hour == 13
-  end
-
-  def min_only
-    start_time.min == 15
-  end
 end
 

@@ -1,2 +1,31 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1>ご予約完了しました。</h1>
+
+<div>
+    <p>姓: <%= @event.first_name %></p>
+  </div>
+  <div>
+    <p>名: <%= @event.last_name %></p>
+  </div>
+  <div>
+    <p>姓・カナ: <%= @event.first_name_kana %></p>
+  </div>
+  <div>
+    <p>名・カナ: <%= @event.last_name_kana %></p>
+  </div>
+  <div>
+    <p>参加人数: <%= @event.number %></p>
+  </div>
+  <div>
+    <p>ご希望日: <%= @event.plan_day %></p>
+  </div>
+  <div>
+    <p>ご希望時間: <%= @event.start_time %></p>
+  </div>
+  <div>
+    <p>メールアドレス: <%= @event.email %></p>
+  </div>
+  <div>
+    <p>電話番号: <%= @event.tel %></p>
+  </div>
+
+<%= link_to "カレンダーページに戻る", events_path %>

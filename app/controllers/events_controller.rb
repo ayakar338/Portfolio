@@ -9,14 +9,15 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    if @event.save
-      rendee :confirm
-    else
-      render :new
-    end
+     if params[:back]
+       render :new
+     else @event.save!
+       redirect_to @event
+     end
   end
 
   def show
+    @event = Event.find_by(id: params[:id])
   end
 
   def edit
@@ -26,6 +27,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    event = Event.find(params[:id])
+    event.destroy
+    flash[:alert] = "予約を取り消しました"
+    redirect_to events_path
   end
 
   def confirm
