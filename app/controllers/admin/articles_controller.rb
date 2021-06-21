@@ -1,8 +1,7 @@
 class Admin::ArticlesController < ApplicationController
   before_action :authenticate_admin!, only: [:edit, :new]
   def index
-    @articles_all = Article.all.page(params[:page]).per(3)
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.page(params[:page]).reverse_order
     @favorite = Favorite.find_by(ip: request.remote_ip, article_id: params[:article_id])
   end
 
@@ -23,7 +22,7 @@ class Admin::ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
-    @comments_all = Comment.all.page(params[:page]).per(3)
+    @comments = @article.comments.page(params[:page]).reverse_order
   end
 
   def edit

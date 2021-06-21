@@ -44,7 +44,7 @@
 <div class="row">
   <div class="col-5 comment">
     <div>コメント件数：<%= @article.comments.count %></div>
-    <% @article.comments.each do |comment| %>
+    <% @comments.each do |comment| %>
     <div class="comment-all">
       <div class="comment-left">
         <tr>
@@ -59,7 +59,7 @@
     </div>
     <% end %>
 <!--ページネーション　始まり-->
-    <div class="text-center"><%= paginate(@comments_all) %></div>
+    <div class="text-center"><%= paginate @comments %></div>
 <!--ページネーション　終わり-->
   </div>
 <!--コメント表示  終わり-->
