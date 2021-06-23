@@ -1,14 +1,16 @@
 class Admin::CommentsController < ApplicationController
 
   def create
-    article = Article.find(params[:article_id])
-    comment = Comment.new(comment_params)
-    comment.article_id = article.id
-    if comment.save
+    @article = Article.find(params[:article_id])
+    @comment = Comment.new(comment_params)
+    @comment.article_id = @article.id
+    if @comment.save
       flash[:notice] = "コメントしました"
-      redirect_to admin_article_path(article)
+      redirect_to admin_article_path(@article)
     else
-      redirect_to admin_article_path(article)
+    @comments = @article.comments.page(params[:page]).reverse_order
+      render template: "admin/articles/show"
+
     end
   end
 

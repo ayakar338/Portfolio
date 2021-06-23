@@ -3,7 +3,9 @@
 <h1>ご予約</h1>
 <div>ご予約は<%= link_to 'こちら', new_event_path %>から</div>
 <div>ご予約の取り消しは<%= link_to "こちら", contacts_path %>からご連絡ください。</div>
-
+<div>受け入れ人数がオーバーしていたり、営業時間外だった場合はこちらからご連絡させていただくことがあります。</div>
+<div>営業時間：午前9時～午後6時(予約可能時間は午後5時までです)</div>
+<div>定休日：月曜日、水曜日</div>
 <% if admin_signed_in? %>
 <table>
   <thead>
@@ -20,7 +22,6 @@
         <td><%= event.first_name %>様</td>
         <td><%= event.start_time.strftime("%F %H:%M") %></td>
         <td><%= link_to '詳しく', event_path(event) %></td>
-        <td><%= link_to '編集', edit_event_path(event) %></td>
         <td><%= link_to '削除', event_path(event), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
       </tr>
     <% end %>

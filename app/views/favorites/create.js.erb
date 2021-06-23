@@ -1,0 +1,23 @@
+('.favorite').html("<%= j(render partial: "favorites/favorites", locals: {article: @article, favorite: @favorite}) %>");
+("#iineCount").text(Number($("#iineCount").text())+1)
+
+data : {article_id : <%= @article.id %>},
+( function() {
+    $('.favorite').click(
+    function() {
+        var hostUrl= "admin_article_path";
+        var dt = {article_id : <%= @article.id %>}
+        $.ajax({
+            url: hostUrl,
+            type: 'POST',
+            dataType: 'text',
+            data : dt,
+            timeout:3000,
+        }).done(function(data) {
+        ("#iineCount").text(Number($("#iineCount").text())+1)
+                          alert("いいねしました");
+        }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+                         alert("すでにいいねしています");
+        })
+    });
+} );

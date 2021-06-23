@@ -29,8 +29,7 @@
   </div>
 
   <div class="favorite">
-    <div class="favorite-text">いいね数:<%= @article.favorites.count %></div>
-    <div class="favorite-text"><%= button_to 'いいね', admin_article_favorites_path(@article) %></div>
+   <%= render partial: "favorites/favorites", locals: {article: @article, favorite: @favorite} %>
   </div>
 
   <% if admin_signed_in? %>

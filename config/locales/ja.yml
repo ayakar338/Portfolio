@@ -24,3 +24,23 @@ ja:
       article:
         sentence: '文章'
         title: 'タイトル'
+
+      comment:
+        name: '名前'
+        comment: 'コメント'
+
+      event:
+        first_name: '姓'
+        last_name: '名'
+        first_name_kana: '姓・カナ'
+        last_name_kana: '名・カナ'
+        number: '参加人数'
+        plan_day: '日にち'
+        start_time: '時間'
+        email: 'メールアドレス'
+        tel: '電話番号'
+
+
+
+
+

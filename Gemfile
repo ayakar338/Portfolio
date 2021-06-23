@@ -89,3 +89,7 @@ gem 'gon'
 gem 'geocoder'
 #シンプルカレンダー使用
 gem 'simple_calendar'
+#リーダブルコードのため
+group :development do
+  gem 'rubocop', require: false
+end

@@ -1,2 +1,19 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class='container'>
+  <div><%= image_tag ('ichigo.jpg'), width: '100%', height: '100%' %></div>
+  <div>当園ではハウスで様々な種類のいちごを栽培しており、いちご狩りを楽しんでいただける施設です。</br>
+  また、いちご以外にもハーブなども栽培しており、当園内で採取していただいたいちごとともにハーブティーを楽しんでいただけます。</div>
+
+<div id = "star-rate"></div>
+<script>
+  $('#star-rate').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: "score",
+  })
+
+</script>
+</div>

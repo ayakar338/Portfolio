@@ -13,7 +13,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       flash[:notice] = "記事を投稿しました"
-      redirect_to admin_articles_path
+      redirect_to admin_articles_path(@article)
     else
       render :new
     end

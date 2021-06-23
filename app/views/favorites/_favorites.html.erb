@@ -1,0 +1,3 @@
+<%= link_to admin_article_favorites_path(article), method: :post, remote: true do %>
+  <div id="iineCount">♥<%= article.favorites.count %>いいね</div>
+<% end %>
