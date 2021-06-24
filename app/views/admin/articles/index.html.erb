@@ -10,8 +10,8 @@
       <% end %>
     </div>
 <!--新規記事登録ボタン  終わり-->
-  <div class="article_all">
-    <table class="article">
+  <div class="article-all">
+    <table class="article-all__article-title">
 <!--記事一覧項目  始まり-->
       <thead>
         <tr>
@@ -26,17 +26,17 @@
 <!--記事一覧  始まり-->
       <% @articles.each do |article| %>
       <tr>
-        <td class="article-date-index">
+        <td class="article-all__article-date">
           <%= article.created_at.strftime("%F %H:%M") %>
         </td>
 
-        <td class="article-title-index">
+        <td class="article-all__article-date">
           <%= link_to admin_article_path(article), class: "btn-link" do %>
             <%= article.title %>
           <% end %>
         </td>
 
-        <td class="article-option">
+        <td class="article-all__article-date">
           <%= link_to "#{article.comments.count} コメント", admin_article_path(article.id) %>
         </td>
 

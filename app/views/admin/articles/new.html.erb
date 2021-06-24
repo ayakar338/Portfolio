@@ -13,24 +13,24 @@
 <div class='container'>
 <!--新規記事投稿画面　始まり-->
     <%= form_with model: @article, url: admin_articles_path, local:true do |f|%>
-    <div class="article-box">
+    <div class="article-new">
 
-      <div class="article-form-group">
+      <div class="article-new__article-form form-group">
         <div><%= f.label :"画像選択" %></div>
         <div><%= f.attachment_field :image %></div>
       </div>
 
-      <div class="article-form-group">
+      <div class="article-new__article-form form-group">
         <div><%= f.label :"タイトル" %></div>
         <div><%= f.text_field :title, class: "form-control" %></div>
       </div>
 
-      <div class="article-form-group">
+      <div class="article-new__article-form form-group">
         <div><%= f.label :"文章" %></div>
         <div><%= f.text_area :sentence, class: "form-control" %></div>
       </div>
 
-      <div class="article-form-group">
+      <div class="article-new__article-form form-group">
          <div><%= f.submit "新規登録", class: "btn btn-primary" %></div>
       </div>
 

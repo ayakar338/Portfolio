@@ -2,33 +2,33 @@
 <div class="row">
 <div><%= link_to"<< 一覧に戻る", admin_breeds_path %></div>
 <!--画像表示　始まり-->
-<div class="breed_article">
- <div>
+<div class="breed-show">
+ <div class="breed-show__breed-image">
 	 <div><%= attachment_image_tag @breed, :image, fallback: "no_image.jpg", class: "breed" %></div>
  </div>
 <!--画像表示　終わり-->
 
 <!--品種説明欄　始まり-->
-  <div class="explanation">
-    <div class="box">
-	    <div class="show-title">品種名</div>
-	  　<div class="show-text"><%= @breed.title %></div>
+  <div class="breed-show__breed-help">
+    <div class="breed-show__breed-box">
+	    <div class="breed-show__breed-title">品種名</div>
+	  　<div class="breed-show__breed-text"><%= @breed.title %></div>
 	  </div>
 
-    <div class="box">
-	    <div class="show-title">品種説明</div>
-	    <div class="show-text"><%= @breed.sentence %></div>
+    <div class="breed-show__breed-box">
+	    <div class="breed-show__breed-title">品種説明</div>
+	    <div class="breed-show__breed-text"><%= @breed.sentence %></div>
 	  </div>
 
 	  <% if @breed.genre != nil %>
-	  <div class="box">
-		   <div class="show-title">分類</div>
-		   <div class="show-text"><%= @breed.genre.name %></div>
+	  <div class="breed-show__breed-box">
+		   <div class="breed-show__breed-title">分類</div>
+		   <div class="breed-show__breed-text"><%= @breed.genre.name %></div>
 		 </div>
 		<% else %>
-		<div class="box">
-       <div class="show-title">分類</div>
-       <div class="show-text">&emsp;  &emsp;  &emsp; なし</div>
+		<div class="breed-show__breed-box">
+       <div class="breed-show__breed-title">分類</div>
+       <div class="breed-show__breed-text">&emsp;  &emsp;  &emsp; なし</div>
       </div>
     <% end %>
 

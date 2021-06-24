@@ -17,24 +17,24 @@
 <!--品種編集画面　始まり-->
   <%= form_for(@breed, url: admin_breed_path, method: :patch) do |f| %>
     <div>
-      <div class="form-group">
+      <div class="breed-edit form-group">
         <div><%= attachment_image_tag(@breed, :image) %></div>
       </div>
-      <div class="form-group">
+      <div class="breed-edit form-group">
 	      <div><%= f.attachment_field :image %></div>
       </div>
 
-      <div class="form-group">
+      <div class="breed-edit form-group">
         <div><%= f.label :"品種名" %></div>
         <div><%= f.text_field :title, class: "form-control" %></div>
       </div>
 
-      <div class="form-group">
+      <div class="breed-edit form-group">
         <div><%= f.label :"品種説明" %></div>
         <div><%= f.text_area :sentence, class: "form-control" %></div>
       </div>
 
-      <div class="form-group">
+      <div class="breed-edit form-group">
         <div><%= f.label :"ジャンル"%></div>
         <div><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></div>
       </div>

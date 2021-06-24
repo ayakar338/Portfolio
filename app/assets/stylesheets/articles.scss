@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*new画面　始まり*/
-.article-box{
+.article-new{
   padding: 20px;
 }
 
-.article-form-group{
+.article-new__article-form{
   padding: 10px;
 }
 /*new画面　終わり*/
@@ -17,67 +17,58 @@
   padding: 10px;
 }
 
-.article_all{
+.article-all{
   display: flex;
   justify-content: space-around;
 }
 
-.article{
+.article-all__article-title{
   text-align: center;
 }
 
-.article-date-index{
-  padding: 10px;
-}
-
-.article-title-index{
-  padding: 10px;
-}
-
-.article-option{
+.article-all__article-date{
   padding: 10px;
 }
 /*index画面　終わり*/
 
 /*show画面　始まり*/
-.article-image{
+.article-show{
+  text-align: center;
+}
+.article-show__article--image{
   padding: 20px;
 }
 
-.article-title{
+.article-show__article-title{
   text-decoration: underline;
   padding: 20px;
   font-size: 20px;
 }
 
-.article-text{
+.article-show__article-text{
   word-break: break-all;
   padding: 20px;
 }
 
-.favorite{
+.article-show__article-favorite{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-.favorite-text{
-  padding: 10px;
-}
-
-.comment{
+.article-show__article-comment{
   padding: 20px;
 }
 
-.comment-all{
+.article-show__article-comment--all{
   padding: 20px;
 }
 
-.comment-left{
+.article-show__article-comment--left{
   text-align: left;
 }
 
-.comment-destroy{
+.article-show__article-comment--destroy{
   text-align: right;
 }
 /*show画面　終わり*/

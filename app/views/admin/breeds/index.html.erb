@@ -29,11 +29,11 @@
 <!--品種記事　始まり-->
  <div class="row">
     <% @breeds.each do |breed| %>
-    <div class="breed_article">
+    <div class="breed-index">
       <div>
         <div><%= attachment_image_tag breed, :image, fallback: "no_image.jpg", class: "breed"%></div>
       </div>
-      <div class="title">
+      <div class="breed-index__breed-title">
         <%= link_to admin_breed_path(breed) do %>
          <div><%= breed.title %></div>
         <% end %>
@@ -45,7 +45,7 @@
 
 
 <!--ページネーション　始まり-->
-　　<div class="text-center"><%= paginate(@breed_all) %></div>
+　　<div class="breed-index__breed-page"><%= paginate(@breed_all) %></div>
 <!--ページネーション　終わり-->
 
   </div>

@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   resources :maps, only: [:index]
 #予約情報
   resources :events, only: [:index,:new,:create,:show,:edit,:update,:destroy]
+#レビュー
+  resources :reviews, only: [:index,:create,:destroy]
 
    post 'events/confirm' => 'events#confirm'
 

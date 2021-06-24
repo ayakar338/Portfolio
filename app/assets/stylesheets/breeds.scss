@@ -12,7 +12,7 @@
   padding: 10px;
 }
 
-.breed_article {
+.breed-index {
   padding: 20px;
   margin: 20px;
 }
@@ -24,32 +24,32 @@ img.breed {
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
 }
 
-.title{
+.breed-index__breed-title{
   padding: 10px;
   text-align: center;
 }
 /*index画面　終わり*/
 
 /*show画面　始まり*/
-.img{
+.breed-show__breed-image{
   padding: 20px;
   margin: 20px;
 }
 
-.explanation{
+.breed-show__breed-help{
   padding: 20px;
   margin: 20px;
 }
 
-.box{
+.breed-show__breed-box{
   padding: 20px;
 }
 
-.show-title{
+.breed-show__breed-title{
   text-decoration: underline;
 }
 
-.show-text{
+.breed-show__breed-text{
   width: 600px;
   word-break: break-all;
   padding: 20px;
@@ -57,8 +57,8 @@ img.breed {
 /*show画面　終わり*/
 
 /*new画面　始まり*/
-.form-group{
-  padding: 10px;
+.breed-new{
+  padding: 20px;
 }
 /*new画面　終わり*/
 

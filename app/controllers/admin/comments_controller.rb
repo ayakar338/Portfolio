@@ -8,7 +8,7 @@ class Admin::CommentsController < ApplicationController
       flash[:notice] = "コメントしました"
       redirect_to admin_article_path(@article)
     else
-    @comments = @article.comments.page(params[:page]).reverse_order
+      @comments = @article.comments.page(params[:page]).reverse_order
       render template: "admin/articles/show"
 
     end
