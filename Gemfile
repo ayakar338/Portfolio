@@ -79,3 +79,17 @@ group :production do
 end
 #エラーメッセージの日本語化
 gem 'rails-i18n'
+#フルカレンダー使用
+gem 'jquery-rails'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+#コントローラーで定義したインスタンス変数をビューのJavaScript内で使用出来る様にする
+gem 'gon'
+#マップの緯度経度情報取得のため
+gem 'geocoder'
+#シンプルカレンダー使用
+gem 'simple_calendar'
+#リーダブルコードのため
+group :development do
+  gem 'rubocop', require: false
+end

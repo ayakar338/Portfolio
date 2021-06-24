@@ -1,0 +1,67 @@
+<!--エラーメッセージ　始まり-->
+  <% if @event.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--エラーメッセージ　終わり-->
+<h1>お申し込みフォーム</h1>
+
+<%= form_with(model: @event, url:events_confirm_path, local: true) do |f| %>
+<table class="table">
+　<tr>
+    <td><%= f.label :姓 %></td>
+    <td><%= f.text_field :first_name %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :名 %></td>
+    <td><%= f.text_field :last_name %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :姓・カナ %></td>
+    <td><%= f.text_field :first_name_kana %></td>
+  </tr>
+
+　<tr>
+    <td><%= f.label :名・カナ %></td>
+    <td><%= f.text_field :last_name_kana %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :参加人数 %></td>
+    <td><%= f.text_field :number %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :ご希望日 %></td>
+    <td><%= f.date_select :plan_day %></td>
+  </tr>
+
+　<tr>
+    <td><%= f.label :ご希望時間 %></td>
+    <td><%= f.time_select :start_time %></td>
+  </tr>
+
+　<tr>
+    <td><%= f.label :メールアドレス %></td>
+    <td><%= f.text_field :email %></td>
+  </tr>
+
+
+  <tr>
+    <td><%= f.label :電話番号 %></td>
+    <td><%= f.text_field :tel %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.submit "確認画面へ" %></td>
+  </tr>
+</table>
+<% end %>

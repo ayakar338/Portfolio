@@ -1,35 +1,42 @@
-<% if @article.errors.any?%>
- <%@article.errors.full_messages.each do|message|%>何も入力されていません
- <%end%>
-<%end%>
-<h2 class="head-line title_h2 text-center">記事編集</h2>
-<div class='container'>
-<div class="row">
-
-  <%= form_for(@article, url: admin_article_path, method: :patch, class: "form-horizontal") do |f| %>
-    <div class="col-xs-4">
-      <div class="img_field">
-        <%= attachment_image_tag(@article, :image, size: "250x180") %>
-      </div>
-      <div class="form-group">
-	      <%= f.attachment_field :image, class: " image" %>
-      </div>
-    </div>
-
-    <div class="col-xs-6">
-        <div class="form-group">
-          <%= f.label :"タイトル", class: "col-sm-3 control-label" %>
-          <%= f.text_field :title, class: "col-sm-9 form-control-static name" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :"文章", class: "col-sm-3 control-label" %>
-          <%= f.text_area :sentence, class: "col-sm-9 control-label description" %>
-        </div>
-      <div class="actions">
-	      <%= f.submit "変更を保存", class: "btn btn-success pull-right" %>
-      </div>
-
+<!--エラーメッセージ　始まり-->
+  <% if @article.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @article.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
+<!--エラーメッセージ  終わり-->
+
+<div><%= link_to "<<戻る",admin_article_path %></div>
+
+<div class='container'>
+
+<!--記事編集画面  始まり-->
+    <%= form_for(@article, url: admin_article_path, method: :patch, class: "form-horizontal") do |f| %>
+    <div>
+      <div class="article-edit form-group">
+        <%= attachment_image_tag(@article, :image, size: "600×500") %>
+      </div>
+      <div class="article-edit form-group">
+        <%= f.attachment_field :image, class: "image" %>
+      </div>
+        <div class="article-edit form-group">
+          <%= f.label :"タイトル" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="article-edit form-group">
+          <%= f.label :"文章" %>
+          <%= f.text_area :sentence, class: "form-control" %>
+        </div>
+      <div>
+        <%= f.submit "変更を保存", class: "btn btn-success" %>
+      </div>
+    </div>
+    <% end %>
+<!--記事編集画面  始まり-->
+
 </div>

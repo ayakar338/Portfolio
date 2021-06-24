@@ -1,3 +1,74 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*new画面　始まり*/
+.article-new{
+  padding: 20px;
+}
+
+.article-new__article-form{
+  padding: 10px;
+}
+/*new画面　終わり*/
+
+/*index画面　始まり*/
+.new_article{
+  padding: 10px;
+}
+
+.article-all{
+  display: flex;
+  justify-content: space-around;
+}
+
+.article-all__article-title{
+  text-align: center;
+}
+
+.article-all__article-date{
+  padding: 10px;
+}
+/*index画面　終わり*/
+
+/*show画面　始まり*/
+.article-show{
+  text-align: center;
+}
+.article-show__article--image{
+  padding: 20px;
+}
+
+.article-show__article-title{
+  text-decoration: underline;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.article-show__article-text{
+  word-break: break-all;
+  padding: 20px;
+}
+
+.article-show__article-favorite{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.article-show__article-comment{
+  padding: 20px;
+}
+
+.article-show__article-comment--all{
+  padding: 20px;
+}
+
+.article-show__article-comment--left{
+  text-align: left;
+}
+
+.article-show__article-comment--destroy{
+  text-align: right;
+}
+/*show画面　終わり*/

@@ -1,6 +1,8 @@
 class Admin::ArticlesController < ApplicationController
+  before_action :authenticate_admin!, only: [:edit, :new]
   def index
-    @articles = Article.all.page(params[:page]).per(3)
+    @articles = Article.page(params[:page]).reverse_order
+    @favorite = Favorite.find_by(ip: request.remote_ip, article_id: params[:article_id])
   end
 
   def new
@@ -11,7 +13,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       flash[:notice] = "記事を投稿しました"
-      redirect_to admin_articles_path
+      redirect_to admin_articles_path(@article)
     else
       render :new
     end
@@ -19,6 +21,8 @@ class Admin::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comments = @article.comments.page(params[:page]).reverse_order
   end
 
   def edit

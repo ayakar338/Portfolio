@@ -6,4 +6,6 @@ class Admin < ApplicationRecord
 
   has_many :articles, dependent: :destroy
   has_many :breeds, dependent: :destroy
+
+  
 end

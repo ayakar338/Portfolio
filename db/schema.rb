@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_135847) do
+ActiveRecord::Schema.define(version: 2021_06_24_054045) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,11 +42,44 @@ ActiveRecord::Schema.define(version: 2021_06_10_135847) do
     t.datetime "created_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.string "name"
+    t.integer "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.integer "email"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "number"
+    t.string "option"
+    t.date "plan_day"
+    t.string "tel"
+    t.integer "price"
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.integer "email"
+    t.datetime "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "article_id"
+    t.string "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_favorites_on_article_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -62,6 +95,13 @@ ActiveRecord::Schema.define(version: 2021_06_10_135847) do
     t.string "first_name_kana"
     t.integer "address"
     t.integer "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.float "rate"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

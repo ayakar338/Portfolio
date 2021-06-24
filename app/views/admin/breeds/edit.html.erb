@@ -1,39 +1,48 @@
-<% if @breed.errors.any?%>
- <%@breed.errors.full_messages.each do|message|%>何も入力されていません
- <%end%>
-<%end%>
-<h2 class="head-line title_h2 text-center">品種編集</h2>
-<div class='container'>
-<div class="row">
-
-  <%= form_for(@breed, url: admin_breed_path, method: :patch, class: "form-horizontal") do |f| %>
-    <div class="col-xs-4">
-      <div class="img_field">
-        <%= attachment_image_tag(@breed, :image, size: "250x180") %>
-      </div>
-      <div class="form-group">
-	      <%= f.attachment_field :image, class: " image" %>
-      </div>
-    </div>
-
-    <div class="col-xs-6">
-        <div class="form-group">
-          <%= f.label :"品種名", class: "col-sm-3 control-label" %>
-          <%= f.text_field :title, class: "col-sm-9 form-control-static name" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :"品種説明", class: "col-sm-3 control-label" %>
-          <%= f.text_area :sentence, class: "col-sm-9 control-label description" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :"ジャンル", class: "col-sm-3 control-label" %>
-          <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --", class: "col-sm-9 genre_id") %>
-        </div>
-      <div class="actions">
-	      <%= f.submit "変更を保存", class: "btn btn-success pull-right" %>
-      </div>
-      
+<!--エラーメッセージ　始まり-->
+  <% if @breed.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @breed.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
+<!--エラーメッセージ　終わり-->
+
+<div><%= link_to "<<戻る",admin_breed_path %></div>
+
+<div class='container'>
+<!--品種編集画面　始まり-->
+  <%= form_for(@breed, url: admin_breed_path, method: :patch) do |f| %>
+    <div>
+      <div class="breed-edit form-group">
+        <div><%= attachment_image_tag(@breed, :image) %></div>
+      </div>
+      <div class="breed-edit form-group">
+	      <div><%= f.attachment_field :image %></div>
+      </div>
+
+      <div class="breed-edit form-group">
+        <div><%= f.label :"品種名" %></div>
+        <div><%= f.text_field :title, class: "form-control" %></div>
+      </div>
+
+      <div class="breed-edit form-group">
+        <div><%= f.label :"品種説明" %></div>
+        <div><%= f.text_area :sentence, class: "form-control" %></div>
+      </div>
+
+      <div class="breed-edit form-group">
+        <div><%= f.label :"ジャンル"%></div>
+        <div><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></div>
+      </div>
+
+      <div>
+	      <div><%= f.submit "変更を保存", class: "btn btn-success" %></div>
+      </div>
+　　</div>
+  <% end %>
+  <!--品種編集画面　終わり-->
 </div>
