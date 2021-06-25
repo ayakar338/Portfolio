@@ -7,7 +7,7 @@
 いちご狩りサイト
 
 ### テーマを選んだ理由
-親戚がイチゴ農家を始めようとしていて、そのサイトを作りたくなり選びました。
+親戚がイチゴ農家を始めようとしていて、集客の手助けになればと思いそのサイトを作りたくなり選びました。
 
 
 ### ターゲットユーザー
@@ -18,8 +18,7 @@
 イチゴ狩りをしたいと思った人が見に来るサイトです。
 
 ## 設計書
-現段階では不明
-<...>
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/15gmj3jZrmtkVHXo8ehEuEjH-LgDNH-RAudnSjCWFmHg/edit?usp=sharing
@@ -32,6 +31,6 @@ https://docs.google.com/spreadsheets/d/15gmj3jZrmtkVHXo8ehEuEjH-LgDNH-RAudnSjCWF
 - IDE：Cloud9
 
 ## 使用素材
-現段階では不明
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- ぱくたそ  https://www.pakutaso.com/
+- Designevo https://www.designevo.com/jp/
+- fontawesom https://fontawesome.com/
