@@ -31,6 +31,6 @@ https://docs.google.com/spreadsheets/d/15gmj3jZrmtkVHXo8ehEuEjH-LgDNH-RAudnSjCWF
 - IDE：Cloud9
 
 ## 使用素材
+- ぱくたそ  https://www.pakutaso.com/
 - Designevo https://www.designevo.com/jp/
 - fontawesom https://fontawesome.com/
-- ぱくたそ  https://www.pakutaso.com/
