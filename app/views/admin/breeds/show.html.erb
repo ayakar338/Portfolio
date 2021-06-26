@@ -1,0 +1,45 @@
+<div class='container'>
+<div class="row">
+<div><%= link_to"<< 一覧に戻る", admin_breeds_path %></div>
+<!--画像表示　始まり-->
+<div class="breed-show">
+ <div class="breed-show__breed-image">
+	 <div><%= attachment_image_tag @breed, :image, fallback: "no_image.jpg", class: "breed" %></div>
+ </div>
+<!--画像表示　終わり-->
+
+<!--品種説明欄　始まり-->
+  <div class="breed-show__breed-help">
+    <div class="breed-show__breed-box">
+	    <div class="breed-show__breed-title">品種名</div>
+	  　<div class="breed-show__breed-text"><%= @breed.title %></div>
+	  </div>
+
+    <div class="breed-show__breed-box">
+	    <div class="breed-show__breed-title">品種説明</div>
+	    <div class="breed-show__breed-text"><%= @breed.sentence %></div>
+	  </div>
+
+	  <% if @breed.genre != nil %>
+	  <div class="breed-show__breed-box">
+		   <div class="breed-show__breed-title">分類</div>
+		   <div class="breed-show__breed-text"><%= @breed.genre.name %></div>
+		 </div>
+		<% else %>
+		<div class="breed-show__breed-box">
+       <div class="breed-show__breed-title">分類</div>
+       <div class="breed-show__breed-text">&emsp;  &emsp;  &emsp; なし</div>
+      </div>
+    <% end %>
+
+    <% if admin_signed_in? %>
+	  <tr>
+	    <th><%= link_to "編集する", edit_admin_breed_path(@breed), class: "btn btn-success" %></th>
+　    <th><%= link_to "削除する", admin_breed_path(@breed.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn bg-danger text-white" %></th>
+　  </tr>
+　  <% end %>
+  </div>
+</div>
+<!--品種説明欄　終わり-->
+</div>
+</div>

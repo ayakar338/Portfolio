@@ -1,0 +1,46 @@
+<!--エラーメッセージ　始まり-->
+  <% if @breed.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @breed.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--エラーメッセージ　終わり-->
+<div class='container'>
+  <div>
+<!--新規品種投稿画面　始まり-->
+    <%= form_with model: @breed, url: admin_breeds_path, local:true do |f|%>
+      <div>
+        <div class="breed-new form-group">
+          <div><%= f.label :"画像選択" %></div>
+          <div><%= f.attachment_field :image %></div>
+        </div>
+
+        <div class="breed-new form-group">
+          <div><%= f.label :"品種名" %></div>
+          <div><%= f.text_field :title, class: "form-control" %></div>
+        </div>
+
+        <div class="breed-new form-group">
+          <div><%= f.label :"品種説明" %></div>
+          <div><%= f.text_area :sentence, class: "form-control" %></div>
+        </div>
+
+        <div class="breed-new form-group">
+          <div><%= f.label :"ジャンル" %></div>
+          <div><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %></div>
+        </div>
+
+        <div class="breed-new form-group">
+          <div><%= f.submit "新規登録", class: "btn btn-primary" %></div>
+        </div>
+
+      </div>
+    <% end %>
+<!--新規品種投稿画面　終わり-->
+  </div>
+</div>

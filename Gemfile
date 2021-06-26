@@ -60,3 +60,36 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# 画像投稿ができるようになるgem
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+#ページネーション
+gem 'kaminari','~> 1.2.1'
+#レイアウト
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+#アイコン
+gem 'font-awesome-sass', '~> 5.13'
+#管理者ログイン
+gem 'devise'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+#エラーメッセージの日本語化
+gem 'rails-i18n'
+#フルカレンダー使用
+gem 'jquery-rails'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+#コントローラーで定義したインスタンス変数をビューのJavaScript内で使用出来る様にする
+gem 'gon'
+#マップの緯度経度情報取得のため
+gem 'geocoder'
+#シンプルカレンダー使用
+gem 'simple_calendar'
+#リーダブルコードのため
+group :development do
+  gem 'rubocop', require: false
+end

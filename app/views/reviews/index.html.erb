@@ -1,0 +1,67 @@
+
+<div class='container'>
+<%= form_with model: @review, local:true do |f| %>
+
+  <!-- 評価 -->
+  <div class="form-group row" id="star">
+    <%= f.label :'評価 ', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :rate %>
+  </div>
+
+  <!-- 評価javascript -->
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'review[rate]',
+    half: true,
+  });
+  </script>
+
+  <!-- 口コミ -->
+  <div class="form-group row">
+    <%= f.label :'口コミ内容 ', class:'col-md-3 col-form-label' %>
+    <div class="col-md-9">
+      <%= f.text_area :text, class: "form-control", rows: "8" %>
+    </div>
+  </div>
+
+  <!-- 確認ボタン -->
+  <div class="form-group row justify-content-end">
+    <div class="col-md-9">
+      <%= f.submit '投稿する', class:"btn btn-success" %>
+    </div>
+  </div>
+<% end %>
+
+<!--評価一覧  始まり-->
+  <% @reviews.each do |review| %>
+    <div>
+      <!--星評価-->
+         <div id="star-rate-<%= review.id %>"></div>
+          <script>
+          $('#star-rate-<%= review.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= review.rate %>,
+          });
+          </script>
+      <!--/星評価-->
+
+      <div>
+        <div><%= review.text %></div>
+      </div>
+      <% if admin_signed_in? %>
+      <div>
+        <div><%= link_to "削除する", review_path(review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn bg-danger text-white" %></div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

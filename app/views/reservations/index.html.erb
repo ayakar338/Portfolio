@@ -1,0 +1,8 @@
+<%= month_calendar events: @all do |date, all| %>
+  <%= date.day %>　//カレンダー上の日程の表示の仕方
+  <% all.each do |i| %>
+    <div>
+      <%= i.price %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,64 @@
+// Place all the styles related to the breeds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*index画面　始まり*/
+
+.new_breed{
+  padding: 10px;
+}
+
+.select_tag{
+  padding: 10px;
+}
+
+.breed-index {
+  padding: 20px;
+  margin: 20px;
+}
+
+img.breed {
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 200px;  /* 縦横を同じ値にする */
+  height: 200px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+}
+
+.breed-index__breed-title{
+  padding: 10px;
+  text-align: center;
+}
+/*index画面　終わり*/
+
+/*show画面　始まり*/
+.breed-show__breed-image{
+  padding: 20px;
+  margin: 20px;
+}
+
+.breed-show__breed-help{
+  padding: 20px;
+  margin: 20px;
+}
+
+.breed-show__breed-box{
+  padding: 20px;
+}
+
+.breed-show__breed-title{
+  text-decoration: underline;
+}
+
+.breed-show__breed-text{
+  width: 600px;
+  word-break: break-all;
+  padding: 20px;
+}
+/*show画面　終わり*/
+
+/*new画面　始まり*/
+.breed-new{
+  padding: 20px;
+}
+/*new画面　終わり*/
+

@@ -1,0 +1,42 @@
+<!--エラーメッセージ　始まり-->
+  <% if @article.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @article.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--エラーメッセージ  終わり-->
+
+<div><%= link_to "<<戻る",admin_article_path %></div>
+
+<div class='container'>
+
+<!--記事編集画面  始まり-->
+    <%= form_for(@article, url: admin_article_path, method: :patch, class: "form-horizontal") do |f| %>
+    <div>
+      <div class="article-edit form-group">
+        <%= attachment_image_tag(@article, :image, size: "600×500") %>
+      </div>
+      <div class="article-edit form-group">
+        <%= f.attachment_field :image, class: "image" %>
+      </div>
+        <div class="article-edit form-group">
+          <%= f.label :"タイトル" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="article-edit form-group">
+          <%= f.label :"文章" %>
+          <%= f.text_area :sentence, class: "form-control" %>
+        </div>
+      <div>
+        <%= f.submit "変更を保存", class: "btn btn-success" %>
+      </div>
+    </div>
+    <% end %>
+<!--記事編集画面  始まり-->
+
+</div>

@@ -1,0 +1,57 @@
+<div class='container'>
+  <div>
+<!--新規記事登録ボタン  始まり-->
+    <div class="new_article">
+      <% if admin_signed_in? %>
+        <%= link_to new_admin_article_path, class: "btn btn-secondary" do %>
+          <i class="fas fa-plus"></i>
+          新規記事投稿
+        <% end %>
+      <% end %>
+    </div>
+<!--新規記事登録ボタン  終わり-->
+  <div class="article-all">
+    <table class="article-all__article-title">
+<!--記事一覧項目  始まり-->
+      <thead>
+        <tr>
+          <th>更新日時</th>
+          <th>記事タイトル</th>
+          <th>コメント数</th>
+          <th>いいね数</th>
+        </tr>
+      </thead>
+<!--記事一覧項目  終わり-->
+
+<!--記事一覧  始まり-->
+      <% @articles.each do |article| %>
+      <tr>
+        <td class="article-all__article-date">
+          <%= article.created_at.strftime("%F %H:%M") %>
+        </td>
+
+        <td class="article-all__article-date">
+          <%= link_to admin_article_path(article), class: "btn-link" do %>
+            <%= article.title %>
+          <% end %>
+        </td>
+
+        <td class="article-all__article-date">
+          <%= link_to "#{article.comments.count} コメント", admin_article_path(article.id) %>
+        </td>
+
+        <td class="article-option">
+          <%= link_to "#{article.favorites.count}", admin_article_path(article.id) %>
+        </td>
+      </tr>
+      <% end %>
+<!--記事一覧  終わり-->
+    </table>
+  </div>
+<!--ページネーション　始まり-->
+    <div class="text-center"><%= paginate @articles %></div>
+<!--ページネーション　終わり-->
+
+  </div>
+
+</div>

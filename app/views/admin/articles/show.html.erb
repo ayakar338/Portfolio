@@ -1,0 +1,90 @@
+
+<div class='container'>
+<!--エラーメッセージ　始まり-->
+  <% if @comment.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--エラーメッセージ  終わり-->
+<div><%= link_to"<< 一覧に戻る", admin_articles_path %></div>
+
+<div class="article-show">
+
+  <div>
+    <div class="article-show__article-image"><%= attachment_image_tag(@article, :image, size: "600×500", fallback: "no_image.jpg") %></div>
+  </div>
+
+  <div>
+    <div class="article-show__article-title"><%= @article.title %></div>
+  </div>
+
+  <div>
+    <div class="article-show__article-text"><%= @article.sentence %></div>
+  </div>
+
+  <div class="article-show__article-favorite">
+   <%= link_to admin_article_favorites_path(@article), method: :post, local:true do %>
+  <div>♥<%= @article.favorites.count %>いいね</div>
+   <% end %>
+  </div>
+
+  <% if admin_signed_in? %>
+  <tr>
+    <th><%= link_to "編集する", edit_admin_article_path(@article), class: "btn btn-success" %></th>
+    <th><%= link_to "削除する", admin_article_path(@article.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn bg-danger text-white" %></th>
+  </tr>
+  <% end %>
+  <div>-----------------------------------------------------------------------------------------------------------------------------------</div>
+<!--コメント表示  始まり-->
+<div class="row">
+  <div class="article-show__article-comment col-5">
+    <div>コメント件数：<%= @article.comments.count %></div>
+    <% @comments.each do |comment| %>
+    <div class="article-show__article-comment--all">
+      <div class="article-show__article-comment--left">
+        <tr>
+          <th><%= comment.created_at.strftime('%Y/%m/%d') %></th>
+          <th>お名前:<%= comment.name %></th>
+        </tr>
+      </div>
+      <div><%= comment.comment %></div>
+      <% if admin_signed_in? %>
+        <div class="article-show__article-comment--destroy"><%= link_to "削除する", admin_article_comment_path(comment.article, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn bg-danger text-white" %></div>
+      <% end %>
+    </div>
+    <% end %>
+<!--ページネーション　始まり-->
+    <div class="article-show__article-page--center"><%= paginate @comments %></div>
+<!--ページネーション　終わり-->
+  </div>
+<!--コメント表示  終わり-->
+
+<div class="col-2"></div>
+
+<!--コメント入力フォーム  始まり-->
+  <div class="col-5">
+  <%= form_with(model:[@article, @comment], url: admin_article_comments_path(@article), local: true) do |f| %>
+    <div class="form-group">
+      <%= f.label :"お名前" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"コメント" %>
+      <%= f.text_area :comment, rows:'5', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "送信する" %>
+    </div>
+  <% end %>
+  </div>
+<!--コメント入力フォーム  終わり-->
+
+</div>
+</div>
